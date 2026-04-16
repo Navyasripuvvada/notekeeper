@@ -1,0 +1,10 @@
+import express from "express";
+import { createNotecontroller,getallcontroler,getbyIDcontroller,updateNotecontroller,deleteNotecontroller } from "../controller/controller";
+import { authMiddleware } from "../middleware/authmidleware";
+const router = express.Router();
+router.post("/", authMiddleware,createNotecontroller);
+router.get("/", authMiddleware,getallcontroler);
+router.get("/:id", authMiddleware,getbyIDcontroller);
+router.put("/:id", authMiddleware,updateNotecontroller);
+router.delete("/:id", authMiddleware,deleteNotecontroller);
+export default router;
